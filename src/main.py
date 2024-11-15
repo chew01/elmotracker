@@ -2,16 +2,16 @@ from datetime import datetime
 from api import fetch_records
 from lang import load_translations
 from parser import load_items
-from utils import extract_token_and_uid
 
 
 def main():
-    uid, token = extract_token_and_uid()
+    uid, token = input("Paste your token here!\n").split("@")
     if not uid or not token:
         print("Error: Could not retrieve UID and token.")
         return
 
     # Fetch records
+    print("Fetching records now!")
     records = fetch_records(uid, token)
     records.reverse()
 
